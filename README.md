@@ -1,2 +1,5 @@
 # learning
-:man_technologist: Learned contents about Python and much more
+:man_technologist: Mi camino aprendiendo Python y Data Science
+
+
+
