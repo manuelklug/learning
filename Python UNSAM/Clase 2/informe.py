@@ -38,7 +38,7 @@ def leer_precios(nombre_archivo):
                 precio = float(row[1])
                 precios[fruta] = precio
             except:
-                pass
+                print("Una fila no pudo ser leída")
 
     return precios
 
