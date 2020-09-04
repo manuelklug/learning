@@ -1,3 +1,5 @@
+import random
+
 def generala_no_servida():
     tirada = []
     
@@ -14,15 +16,10 @@ def generala_no_servida():
                 valor = random.randint(1,6)
                 
                 if valor == maximo:
-                    tirada.remove(num)
-                    tirada.insert(index, maximo)
                     break
         
-            try:
-                tirada.remove(num)
-                tirada.insert(index, valor)
-            except:
-                pass
+            tirada.remove(num)
+            tirada.insert(index, valor)
     
     return tirada
 

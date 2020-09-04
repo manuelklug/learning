@@ -1,6 +1,11 @@
-#arboles.py
+# arboles.py
+
+# Importando librerías y módulos necesarios:
 
 import csv
+import os
+import numpy as np
+import matplotlib.pyplot as plt
 
 def leer_arboles(nombre_archivo):
     arboles = []
@@ -35,26 +40,28 @@ def leer_arboles(nombre_archivo):
 
     return arboles
 
-arboleda = leer_arboles('../Data/arbolado-en-espacios-verdes.csv')
 #%%
+# Ejercicio 4.30
 
-# Ejercicio 3.19. Lista de altos de Jacarandá
+os.path.join('Data', 'arbolado-en-espacios-verdes.csv')
+arboleda = leer_arboles(nombre_archivo)
 
-H_Jacaranda = [float(arbol['altura_tot']) for arbol in arboleda if arbol['nombre_com'] == 'Jacarandá']
+altos = [float(arbol['altura_tot']) for arbol in arboleda if arbol['nombre_com'] == 'Jacarandá']
 
+plt.hist(altos, bins=10)
+plt.title('Alturas de árboles Jacarandás en CABA')
+plt.show()
 
 #%%
+# Ejercicio 4.31
 
-# Ejercicio 3.20.Lista de altos y diámetros de Jacarandá.
+altos_diametros = [(float(arbol['altura_tot']), float(arbol['diametro'])) for arbol in arboleda if arbol['nombre_com'] == 'Jacarandá']
 
-H_diam_jacaranda = [(float(arbol['altura_tot']), float(arbol['diametro'])) for arbol in arboleda if arbol['nombre_com'] == 'Jacarandá']
+medidas = np.array(altos_diametros)
 
+plt.scatter(medidas[:,1], medidas[:,0], alpha=0.3)
 
-
-
-
-
-
-
-
-
+plt.title('Altura y diámetro de Jacarandás en CABA')
+plt.xlabel('Altura del árbol')
+plt.ylabel('Diamétro del árbol')
+plt.show()
